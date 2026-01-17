@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Send, Mail, Instagram } from 'lucide-react';
+import { Send, Instagram } from 'lucide-react';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -8,11 +8,29 @@ const Contact: React.FC = () => {
     message: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission logic here
-    console.log("Form submitted", formData);
-    alert("Message sent! (Demo)");
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('https://formspree.io/f/xzdddrja', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+        setFormData({ name: '', email: '', message: '' });
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -21,21 +39,14 @@ const Contact: React.FC = () => {
         {/* Left Side: Info */}
         <div className="space-y-8">
           <div>
-            <h2 className="text-4xl md:text-6xl font-serif text-white mb-6">Let's Create<br/><span className="text-zinc-500 italic">Something timeless.</span></h2>
+            <h2 className="text-4xl md:text-6xl font-serif text-white mb-6">Let's make<br/><span className="text-zinc-500 italic">something cool.</span></h2>
             <p className="text-lg text-zinc-400 max-w-md leading-relaxed">
-              Available for weddings worldwide and tour dates globally. 
-              Based in Los Angeles, CA.
+              Based in San Francisco. Down to travel, but that might cost extra.
             </p>
           </div>
 
           <div className="flex flex-col gap-4">
-            <a href="#" className="flex items-center gap-4 text-zinc-300 hover:text-white transition-colors group">
-              <div className="p-3 bg-zinc-900 rounded-full group-hover:bg-zinc-800">
-                <Mail className="w-5 h-5" />
-              </div>
-              <span className="text-lg">hello@zachkysar.com</span>
-            </a>
-            <a href="#" className="flex items-center gap-4 text-zinc-300 hover:text-white transition-colors group">
+            <a href="https://www.instagram.com/zachkysar/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-zinc-300 hover:text-white transition-colors group">
               <div className="p-3 bg-zinc-900 rounded-full group-hover:bg-zinc-800">
                 <Instagram className="w-5 h-5" />
               </div>
@@ -47,8 +58,8 @@ const Contact: React.FC = () => {
         {/* Right Side: Standard Form */}
         <div className="bg-zinc-900/50 p-8 rounded-2xl border border-zinc-800 backdrop-blur-sm">
           <div className="mb-8">
-            <h3 className="text-xl font-bold text-white">Send an Inquiry</h3>
-            <p className="text-zinc-500 text-sm mt-1">Tell me about your project, dates, and vision.</p>
+            <h3 className="text-xl font-bold text-white">Drop me a line</h3>
+            <p className="text-zinc-500 text-sm mt-1">What are you working on? When do you need it?</p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-4 animate-fade-in">
@@ -88,11 +99,21 @@ const Contact: React.FC = () => {
                 />
             </div>
 
-            <button type="submit" className="w-full bg-white text-black py-4 rounded-xl font-bold text-lg hover:bg-zinc-200 transition-colors flex items-center justify-center gap-2 mt-2">
-              Send Message
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="w-full bg-white text-black py-4 rounded-xl font-bold text-lg hover:bg-zinc-200 transition-colors flex items-center justify-center gap-2 mt-2 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {isSubmitting ? 'Sending...' : 'Send Message'}
               <Send size={18} />
             </button>
           </form>
+
+          {submitted && (
+            <div className="mt-6 p-4 bg-green-900/30 border border-green-800 rounded-lg text-green-400 text-center">
+              Thanks for reaching out! I'll get back to you soon.
+            </div>
+          )}
         </div>
       </div>
     </section>

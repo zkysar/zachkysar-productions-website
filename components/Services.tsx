@@ -1,43 +1,36 @@
 import React from 'react';
 import { ServicePackage } from '../types';
-import { Camera, Music, Film, Heart, Clapperboard } from 'lucide-react';
+import { Music, Film, Clapperboard } from 'lucide-react';
 
 const services: ServicePackage[] = [
   {
     title: "Concert Photography",
-    price: "Starts at $400",
-    features: ["Full set coverage", "30+ High-res edits", "24hr turnaround", "Artist portraits"],
+    price: "$100",
+    features: ["2+ photos per band member", "Shot while you play", "24hr turnaround", "+$30 for band portraits"],
     category: "concert",
     icon: <Music className="w-6 h-6 text-purple-400" />
   },
   {
-    title: "Tour Documentation",
-    price: "Custom Quote",
-    features: ["Full tour coverage", "Daily recap reels", "Behind the scenes", "Lifestyle content"],
-    category: "concert",
-    icon: <Camera className="w-6 h-6 text-purple-400" />
-  },
-  {
     title: "Music Video Production",
-    price: "Starts at $1,200",
-    features: ["Concept development", "4K Filming", "Professional Color Grading", "VFX & Editing"],
+    price: "$500",
+    features: ["Concept development", "Filming", "Color Grading", "Editing"],
     category: "music-video",
     icon: <Clapperboard className="w-6 h-6 text-red-400" />
   },
   {
+    title: "Musician Content",
+    price: "$250",
+    features: ["1 day shoot", "3 short clips", "1 BTS clip"],
+    category: "music-video",
+    icon: <Film className="w-6 h-6 text-red-400" />
+  },
+  {
     title: "Wedding Cinema",
-    price: "Starts at $2,500",
-    features: ["8 Hours coverage", "Highlight film (3-5 min)", "Drone footage", "Full ceremony cut"],
+    price: "$500",
+    features: ["Ceremony & reception", "Highlight film (3-5 min)", "Full ceremony cut raw"],
     category: "wedding",
     icon: <Film className="w-6 h-6 text-amber-400" />
   },
-  {
-    title: "Love Stories",
-    price: "Starts at $1,800",
-    features: ["Engagement Session", "Full Wedding Day Photo", "Online Gallery", "Print Rights"],
-    category: "wedding",
-    icon: <Heart className="w-6 h-6 text-amber-400" />
-  }
 ];
 
 const Services: React.FC = () => {
@@ -45,8 +38,8 @@ const Services: React.FC = () => {
     <section id="services" className="py-20 bg-zinc-900/30 border-y border-zinc-800">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-serif mb-4 text-white">Investment</h2>
-          <p className="text-zinc-400">Straightforward packages for your most important moments.</p>
+          <h2 className="text-3xl md:text-5xl font-serif mb-4 text-white">Pricing</h2>
+          <p className="text-zinc-400">These are ballpark numbers. We can adjust based on what you actually need.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
@@ -70,8 +63,11 @@ const Services: React.FC = () => {
                 ))}
               </ul>
 
-              <button className="w-full py-3 rounded-lg border border-zinc-700 text-zinc-300 hover:bg-white hover:text-black hover:border-white transition-all text-sm font-semibold uppercase tracking-wider">
-                Details
+              <button
+                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                className="w-full py-3 rounded-lg border border-zinc-700 text-zinc-300 hover:bg-white hover:text-black hover:border-white transition-all text-sm font-semibold uppercase tracking-wider"
+              >
+                Get in Touch
               </button>
             </div>
           ))}

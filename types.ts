@@ -8,6 +8,8 @@ export interface PortfolioItem {
   title: string;
   description: string;
   span?: string; // 'col-span-1' | 'col-span-2' for grid variety
+  gallery?: string[]; // Array of image URLs for galleries with multiple images
+  link?: { url: string; label: string }; // Optional external link
 }
 
 export interface ServicePackage {
