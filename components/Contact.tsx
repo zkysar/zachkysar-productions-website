@@ -41,7 +41,7 @@ const Contact: React.FC = () => {
           <div>
             <h2 className="text-4xl md:text-6xl font-serif text-white mb-6">Let's make<br/><span className="text-zinc-500 italic">something cool.</span></h2>
             <p className="text-lg text-zinc-400 max-w-md leading-relaxed">
-              Based in San Francisco. Down to travel, but that might cost extra.
+              Based in San Francisco. Available to travel.
             </p>
           </div>
 

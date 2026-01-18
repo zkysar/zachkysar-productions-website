@@ -90,11 +90,11 @@ const About: React.FC = () => {
               </div>
               <div>
                 <p className="text-3xl font-serif text-white">{getYearsSince(CONCERT_PHOTO_START)}</p>
-                <p className="text-zinc-500 text-sm uppercase tracking-wider mt-1">Concert Photo</p>
+                <p className="text-zinc-500 text-sm uppercase tracking-wider mt-1">Shooting Photos</p>
               </div>
               <div>
                 <p className="text-3xl font-serif text-white">{getYearsSince(VIDEO_START)}</p>
-                <p className="text-zinc-500 text-sm uppercase tracking-wider mt-1">Video</p>
+                <p className="text-zinc-500 text-sm uppercase tracking-wider mt-1">Shooting Video</p>
               </div>
             </div>
           </div>

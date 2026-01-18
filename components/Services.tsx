@@ -42,11 +42,11 @@ const Services: React.FC = () => {
           <p className="text-zinc-400">Every project is different. Reach out and let's figure out what works for you.</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+        <div className="flex flex-wrap justify-center gap-6">
           {services.map((service, idx) => (
             <div 
               key={idx}
-              className="p-8 rounded-2xl bg-zinc-950 border border-zinc-800 hover:border-zinc-600 transition-all duration-300 hover:-translate-y-2 group flex flex-col h-full"
+              className="w-full sm:w-64 p-8 rounded-2xl bg-zinc-950 border border-zinc-800 hover:border-zinc-600 transition-all duration-300 hover:-translate-y-2 group flex flex-col"
             >
               <div className="w-12 h-12 rounded-full bg-zinc-900 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                 {service.icon}
