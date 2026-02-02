@@ -90,6 +90,25 @@ const PORTFOLIO_ITEMS: PortfolioItem[] = [
     link: { url: 'https://www.instagram.com/ifyousaysoband/', label: '@ifyousaysoband' }
   },
   {
+    id: 'jolene',
+    type: 'photo',
+    category: 'concert',
+    src: 'https://zkysar-photography.s3.amazonaws.com/photography/jolene/compressed/DSC07560-compressed.jpg',
+    title: 'Jolene',
+    description: 'Jolene at Brick and Mortar SF on 2026-01-25.',
+    span: 'col-span-2',
+    gallery: [
+      'https://zkysar-photography.s3.amazonaws.com/photography/jolene/compressed/DSC07560-compressed.jpg',
+      'https://zkysar-photography.s3.amazonaws.com/photography/jolene/compressed/DSC07443-compressed.jpg',
+      'https://zkysar-photography.s3.amazonaws.com/photography/jolene/compressed/DSC06794-compressed.jpg',
+      'https://zkysar-photography.s3.amazonaws.com/photography/jolene/compressed/DSC06591-compressed.jpg',
+      'https://zkysar-photography.s3.amazonaws.com/photography/jolene/compressed/DSC07635-compressed.jpg',
+      'https://zkysar-photography.s3.amazonaws.com/photography/jolene/compressed/DSC07484-compressed.jpg',
+      'https://zkysar-photography.s3.amazonaws.com/photography/jolene/compressed/DSC06045-compressed.jpg',
+    ],
+    link: { url: 'https://www.instagram.com/this.is.jolene/', label: '@this.is.jolene' }
+  },
+  {
     id: 'monte-lately',
     type: 'video',
     category: 'music-video',
@@ -149,6 +168,7 @@ const HERO_ASSETS: HeroAsset[] = [
   { type: 'image', src: 'https://zkysar-photography.s3.amazonaws.com/photography/ochamememe/compressed/DSC06741-compressed.jpg', category: 'concert' },
   { type: 'image', src: 'https://zkysar-photography.s3.amazonaws.com/photography/ochamememe/compressed/DSC06595-compressed.jpg', category: 'concert' },
   { type: 'image', src: 'https://zkysar-photography.s3.amazonaws.com/photography/ian/compressed/DSC06611-Enhanced-SR-compressed.jpg', category: 'concert' },
+  { type: 'image', src: 'https://zkysar-photography.s3.amazonaws.com/photography/jolene/compressed/DSC07560-compressed.jpg', category: 'concert' },
 ];
 
 const App: React.FC = () => {
