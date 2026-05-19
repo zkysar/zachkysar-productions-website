@@ -1,15 +1,16 @@
-export type Category = 'all' | 'concert' | 'wedding' | 'music-video';
+export type Category = 'all' | 'concert' | 'wedding' | 'music-video' | 'portrait' | 'side-project';
 
 export interface PortfolioItem {
   id: string;
   type: 'photo' | 'video';
-  category: 'concert' | 'wedding' | 'music-video';
+  category: 'concert' | 'wedding' | 'music-video' | 'portrait' | 'side-project';
   src: string;
   title: string;
   description: string;
   span?: string; // 'col-span-1' | 'col-span-2' for grid variety
   gallery?: string[]; // Array of image URLs for galleries with multiple images
   link?: { url: string; label: string }; // Optional external link
+  objectPosition?: string; // CSS object-position for the grid card thumbnail crop
 }
 
 export interface ServicePackage {

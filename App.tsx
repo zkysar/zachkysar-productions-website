@@ -146,6 +146,39 @@ const PORTFOLIO_ITEMS: PortfolioItem[] = [
     span: 'col-span-2',
     link: { url: 'https://www.youtube.com/watch?v=21lDCBNLcQ0', label: 'Watch on YouTube' }
   },
+  {
+    id: 'kin-engagement',
+    type: 'video',
+    category: 'wedding',
+    src: 'https://zkysar-photography.s3.amazonaws.com/photography/wedding-kin/cover.jpg',
+    title: 'Engagement Film',
+    description: 'Engagement film.',
+    link: { url: 'https://vimeo.com/1187039168/ac07fdc87c', label: 'Watch on Vimeo' }
+  },
+  {
+    id: 'headshots',
+    type: 'photo',
+    category: 'portrait',
+    src: 'https://zkysar-photography.s3.amazonaws.com/photography/headshots/compressed/DSC02041-compressed.jpg',
+    title: 'Professional Headshots',
+    description: 'Studio-style portrait session.',
+    span: 'col-span-2',
+    objectPosition: 'center 25%',
+    gallery: [
+      'https://zkysar-photography.s3.amazonaws.com/photography/headshots/compressed/DSC02041-compressed.jpg',
+      'https://zkysar-photography.s3.amazonaws.com/photography/headshots/compressed/DSC02131-compressed.jpg',
+      'https://zkysar-photography.s3.amazonaws.com/photography/headshots/compressed/DSC01868-compressed.jpg',
+    ],
+  },
+  {
+    id: 'exquisite-taste',
+    type: 'video',
+    category: 'side-project',
+    src: 'https://img.youtube.com/vi/hOVH1RaaLNo/maxresdefault.jpg',
+    title: 'Exquisite Taste',
+    description: 'A short film.',
+    link: { url: 'https://www.youtube.com/watch?v=hOVH1RaaLNo', label: 'Watch on YouTube' }
+  },
 ];
 
 // Background assets for Hero slider with categories
@@ -169,6 +202,11 @@ const HERO_ASSETS: HeroAsset[] = [
   { type: 'image', src: 'https://zkysar-photography.s3.amazonaws.com/photography/ochamememe/compressed/DSC06595-compressed.jpg', category: 'concert' },
   { type: 'image', src: 'https://zkysar-photography.s3.amazonaws.com/photography/ian/compressed/DSC06611-Enhanced-SR-compressed.jpg', category: 'concert' },
   { type: 'image', src: 'https://zkysar-photography.s3.amazonaws.com/photography/jolene/compressed/DSC07560-compressed.jpg', category: 'concert' },
+  { type: 'video', src: 'https://zkysar-photography.s3.amazonaws.com/hero-clips-web/engagement-032.mp4', category: 'wedding' },
+  { type: 'video', src: 'https://zkysar-photography.s3.amazonaws.com/hero-clips-web/engagement-113.mp4', category: 'wedding' },
+  { type: 'video', src: 'https://zkysar-photography.s3.amazonaws.com/hero-clips-web/engagement-154.mp4', category: 'wedding' },
+  { type: 'video', src: 'https://zkysar-photography.s3.amazonaws.com/hero-clips-web/taste-120.mp4', category: 'side-project' },
+  { type: 'video', src: 'https://zkysar-photography.s3.amazonaws.com/hero-clips-web/taste-304.mp4', category: 'side-project' },
 ];
 
 const App: React.FC = () => {
