@@ -44,19 +44,26 @@ const PortfolioGrid: React.FC<PortfolioGridProps> = ({ items, filter, onFilterCh
         </div>
 
         <div className="flex gap-2 mt-6 md:mt-0 bg-zinc-900/50 p-1 rounded-full border border-zinc-800 backdrop-blur-sm overflow-x-auto hide-scrollbar max-w-full">
-          {(['all', 'wedding', 'music-video', 'concert'] as Category[]).map((cat) => (
-            <button
-              key={cat}
-              onClick={() => onFilterChange(cat)}
-              className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap ${
-                filter === cat
-                  ? 'bg-white text-black shadow-lg'
-                  : 'text-zinc-400 hover:text-white hover:bg-zinc-800'
-              }`}
-            >
-              {cat === 'music-video' ? 'Music Videos' : cat.charAt(0).toUpperCase() + cat.slice(1)}
-            </button>
-          ))}
+          {(['all', 'wedding', 'music-video', 'concert', 'portrait', 'side-project'] as Category[]).map((cat) => {
+            const label =
+              cat === 'music-video' ? 'Music Videos' :
+              cat === 'portrait' ? 'Portraits' :
+              cat === 'side-project' ? 'Side Projects' :
+              cat.charAt(0).toUpperCase() + cat.slice(1);
+            return (
+              <button
+                key={cat}
+                onClick={() => onFilterChange(cat)}
+                className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap ${
+                  filter === cat
+                    ? 'bg-white text-black shadow-lg'
+                    : 'text-zinc-400 hover:text-white hover:bg-zinc-800'
+                }`}
+              >
+                {label}
+              </button>
+            );
+          })}
         </div>
       </div>
 
@@ -72,13 +79,17 @@ const PortfolioGrid: React.FC<PortfolioGridProps> = ({ items, filter, onFilterCh
             <img
               src={item.src}
               alt={item.title}
+              style={item.objectPosition ? { objectPosition: item.objectPosition } : undefined}
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100"
             />
 
             {/* Overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
               <span className="text-xs font-bold tracking-wider text-amber-500 uppercase mb-2">
-                {item.category === 'music-video' ? 'Music Video' : item.category}
+                {item.category === 'music-video' ? 'Music Video' :
+                 item.category === 'portrait' ? 'Portrait' :
+                 item.category === 'side-project' ? 'Side Project' :
+                 item.category}
               </span>
               <h3 className="text-xl font-bold text-white">{item.title}</h3>
               <p className="text-sm text-zinc-300 mt-1">{item.description}</p>
